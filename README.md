@@ -10,13 +10,13 @@ The REST API must support four endpoint:
  
 # Overview and Use Notes
 
- * **I built this API using ASP.NET Core 3.1 and SQLite.
+ * I built this API using ASP.NET Core 3.1 and SQLite.
 
- * **\IpRestApi\Controllers\IpController.cs contains all of the primary functionality. 
+ * \IpRestApi\Controllers\IpController.cs contains all of the primary functionality. 
 
- * **Please note that the IP_Management table is dropped and recreated with each launch of the application, so you’ll have to hit the Create IP Address endpoint before doing anything else. 
+ * Please note that the IP_Management table is dropped and recreated with each launch of the application, so you’ll have to hit the Create IP Address endpoint before doing anything else. 
 
- * **All errors will be logged to C:\Temp\
+ * All errors will be logged to C:\Temp\
 
 # Testing it out
 
