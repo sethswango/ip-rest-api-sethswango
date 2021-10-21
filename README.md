@@ -14,9 +14,9 @@ The REST API must support four endpoint:
 
  * \IpRestApi\Controllers\IpController.cs contains all of the primary functionality. 
 
- * Please note that the IP_Management table is dropped and recreated with each launch of the application, so you’ll have to hit the Create IP Address endpoint before doing anything else. 
+ * Please note that the IP_Management table is dropped and recreated with each launch of the application, so you’ll have to hit the Create IP Address endpoint to create records before listing or modifying them.
 
- * All errors will be logged to C:\Temp\
+ * All errors will be logged to a file in C:\Temp\
 
 # Testing it out
 
