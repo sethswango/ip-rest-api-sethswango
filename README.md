@@ -7,3 +7,4 @@ The REST API must support four endpoint:
   * **List IP addresses** - return all IP addresses in the system with their current status
   * **Acquire an IP** - set the status of a certain IP to “acquired”
   * **Release an IP** - set the status of a certain IP to “available”
+ 
