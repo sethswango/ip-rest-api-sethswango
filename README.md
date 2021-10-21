@@ -8,3 +8,22 @@ The REST API must support four endpoint:
   * **Acquire an IP** - set the status of a certain IP to “acquired”
   * **Release an IP** - set the status of a certain IP to “available”
  
+## Overview and Use Notes
+
+I built this API using ASP.NET Core 3.1 and SQLite.
+
+\IpRestApi\Controllers\IpController.cs contains all of the primary functionality. 
+
+ Please note that the IP_Management table is dropped and recreated with each launch of the application, so you’ll have to hit the Create IP Address endpoint before doing anything else. 
+
+All errors will be logged to C:\Temp\.
+
+## Testing it out
+
+1.  Clone this repository
+2.  Build the solution using Visual Studio, or on the  [command line](https://www.microsoft.com/net/core)  with  `dotnet build`.
+3.  Run the project under IIS Express. The API will start up on  [https://localhost:44358/](https://localhost:44358/)  with  `dotnet run`.
+4.  Use an HTTP client like  [Postman](https://www.getpostman.com/)  to create requests
+		- For API endpoint details please view the [SwaggerHub API Documentation](https://app.swaggerhub.com/apis-docs/sethswango/ip-api-seth-swango/1.0.0#/)
+		- An exported Postman collection that includes all the calls has been included in the root directory of the 	repo
+
