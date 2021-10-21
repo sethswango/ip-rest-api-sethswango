@@ -24,7 +24,8 @@ All errors will be logged to C:\Temp\.
 2.  Build the solution using Visual Studio, or on the  [command line](https://www.microsoft.com/net/core)  with  `dotnet build`.
 3.  Run the project under IIS Express. The API will start up on  [https://localhost:44358/](https://localhost:44358/)  with  `dotnet run`.
 4.  Use an HTTP client like  [Postman](https://www.getpostman.com/)  to create requests
-		
-		- For API endpoint details please view the [SwaggerHub API Documentation](https://app.swaggerhub.com/apis-docs/sethswango/ip-api-seth-swango/1.0.0#/)
-		- An exported Postman collection that includes all the calls has been included in the root directory of the 	repo
+
+	- For API endpoint details please view the [SwaggerHub API Documentation](https://app.swaggerhub.com/apis-docs/sethswango/ip-api-seth-swango/1.0.0#/)
+	
+	- An exported Postman collection that includes all the calls has been included in the root directory of the repo
 
