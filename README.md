@@ -1,4 +1,4 @@
-# IP Address Management REST API
+# IP Address Management REST API Original Requirements
  
 Create a simple IP Address Management REST API on top of any data store. It will include the ability to add IP Addresses by CIDR block and then either acquire or release IP addresses individually. Each IP address will have a status associated with it that is either “available” or “acquired”. 
  
@@ -8,7 +8,7 @@ The REST API must support four endpoint:
   * **Acquire an IP** - set the status of a certain IP to “acquired”
   * **Release an IP** - set the status of a certain IP to “available”
  
-## Overview and Use Notes
+# Overview and Use Notes
 
 I built this API using ASP.NET Core 3.1 and SQLite.
 
@@ -18,7 +18,7 @@ I built this API using ASP.NET Core 3.1 and SQLite.
 
 All errors will be logged to C:\Temp\.
 
-## Testing it out
+# Testing it out
 
 1.  Clone this repository
 2.  Build the solution using Visual Studio, or on the  [command line](https://www.microsoft.com/net/core)  with  `dotnet build`.
