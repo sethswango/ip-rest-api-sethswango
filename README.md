@@ -22,7 +22,7 @@ The REST API must support four endpoint:
 
 1.  Clone this repository
 2.  Build the solution using Visual Studio, or on the  [command line](https://www.microsoft.com/net/core)  with  `dotnet build`.
-3.  Run the project under IIS Express. The API will start up on  [https://localhost:44358/](https://localhost:44358/)  with  `dotnet run`.
+3.  Run the project in debug under IIS Express. The API will start up on  [https://localhost:44358/](https://localhost:44358/).
 4.  Use an HTTP client like  [Postman](https://www.getpostman.com/)  to create requests
 
 	- For API endpoint details please view the [SwaggerHub API Documentation](https://app.swaggerhub.com/apis-docs/sethswango/ip-api-seth-swango/1.0.0#/)
