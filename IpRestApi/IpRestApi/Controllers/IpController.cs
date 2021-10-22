@@ -20,8 +20,6 @@ namespace IpRestApi.Controllers
         [HttpPost("create")]
         public IActionResult CreateIpAddresses([FromForm] IpAddress req)
         {
-            StringBuilder sb = new StringBuilder();
-
             try
             {
                 IPNetwork ipnetwork = IPNetwork.Parse(req.ip);
@@ -29,41 +27,36 @@ namespace IpRestApi.Controllers
                 var end = ipnetwork.LastUsable;
                 var range = new IPAddressRange(start, end);
 
-                sb.Append("BEGIN TRANSACTION;");
+                StringBuilder sb = new StringBuilder();
+                var i = 0;
 
-                foreach (var ip in range)
+                using (var connection = SQLiteHandler.CreateConnection())
+                using (var transaction = connection.BeginTransaction())
                 {
-                    sb.Append($"INSERT INTO IP_Management (ip_address, is_available) VALUES ('{ip}','1');");
-                }
+                    var command = connection.CreateCommand();
+                    command.CommandText =
+                    @"
+                        INSERT INTO IP_Management (ip_address, is_available) VALUES ($value, 1);
+                    ";
 
-                sb.Append("COMMIT;");
+                    var parameter = command.CreateParameter();
+                    parameter.ParameterName = "$value";
+                    command.Parameters.Add(parameter);
+
+                    foreach (var ip in range)
+                    {
+                        parameter.Value = ip;
+                        command.ExecuteNonQuery();
+                    }
+
+                    transaction.Commit();
+                }             
             }
             catch (Exception ex)
             {
-                var message = $"Error while parsing create IP request. IP and CIDR: {req.ip}";
+                var message = $"Error handling create IP request. IP and CIDR: {req.ip} Error: {ex}";
                 logger.Error(ex, message);
                 return BadRequest(message);
-            }
-
-            SQLiteConnection sqlite_conn;
-            sqlite_conn = SQLiteHandler.CreateConnection();
-
-            try
-            {
-                SQLiteCommand sqlite_cmd;
-                sqlite_cmd = sqlite_conn.CreateCommand();
-                sqlite_cmd.CommandText = sb.ToString();
-                sqlite_cmd.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                var message = "Error while creating new IP address records";
-                logger.Error(ex, message);
-                return BadRequest(message);
-            }
-            finally
-            {
-                sqlite_conn.Close();
             }
 
             return Ok();
