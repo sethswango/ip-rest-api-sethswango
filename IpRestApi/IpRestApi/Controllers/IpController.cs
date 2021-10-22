@@ -27,9 +27,6 @@ namespace IpRestApi.Controllers
                 var end = ipnetwork.LastUsable;
                 var range = new IPAddressRange(start, end);
 
-                StringBuilder sb = new StringBuilder();
-                var i = 0;
-
                 using (var connection = SQLiteHandler.CreateConnection())
                 using (var transaction = connection.BeginTransaction())
                 {
